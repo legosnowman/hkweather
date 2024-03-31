@@ -31,7 +31,7 @@ def hk_weather():
         st.subheader("Information provided by Hong Kong Observatory")
         url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=en"
     else:
-        st.head("香港 天氣")
+        st.header("香港 天氣")
         st.subheader("資料由香港天文台提供")
         url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=tc"
 
