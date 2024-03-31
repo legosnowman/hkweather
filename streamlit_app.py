@@ -10,7 +10,8 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.sidebar.title(APP_NAME)
+st.sidebar.title("Sidebar")
+st.header("HK Weather")
 
 def hk_weather():
     # The API endpoint
