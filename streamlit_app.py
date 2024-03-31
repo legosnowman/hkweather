@@ -33,7 +33,7 @@ def hk_weather():
     st.write(response_json['generalSituation'])
     st.write(response_json['forecastDesc'])
     st.write(response_json['outlook'])
-    st.write("Updated: " & response_json["updateTime"])
+    st.write("Updated: " + response_json["updateTime"])
 
     st.write("<p>")
     st.write("<B>JSON</B>")
