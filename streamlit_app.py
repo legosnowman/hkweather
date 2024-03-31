@@ -15,8 +15,14 @@ st.header("HK Weather")
 
 url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=en"
 response = requests.get(url)
-response_json = response.json()
-st.write(response_json['generalSituation'])
+
+if response == 200:
+    response_json = response.json()
+    st.write(response_json['generalSituation'])
+    st.write("<p>")
+    st.write(response_json["forecastPeriod"])
+
+
 
 def hk_weather():
     # The API endpoint
@@ -32,8 +38,7 @@ def hk_weather():
     #print(type(response_json))
     if response == 200:
         response_json = response.json()
-        #st.write(response_json['generalSituation'])
-        st.write(response_json["forecastPeriod"])
+        #st.write(response_json['generalSituation'])       
         
         #if response_json['data'][0] is not None:
         #    epi_one  = response_json['data'][0]
