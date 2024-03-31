@@ -14,7 +14,7 @@ st.set_page_config(
 st.sidebar.title("Sidebar")
 st.header("HK Weather")
 
-url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=en"
+url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=tc"
 response = requests.get(url)
 
 def hk_weather():
