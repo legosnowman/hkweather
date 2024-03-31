@@ -20,12 +20,11 @@ st.header("HK Weather")
 
 def hk_weather():
     # The API endpoint
-
+   
     with st.sidebar:
-        lang = st.radio(
-        "Language",
-        ["English", "Traditional Chinese"],
-       )
+        with st.form("weather_form"):
+            lang = st.radio("Language",("English", "Traditional Chinese"))
+            check_fn=st.form_submit_button("Check_function")
 
     if lang == "English":
         url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=en"
