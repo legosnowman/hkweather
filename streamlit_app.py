@@ -21,13 +21,14 @@ def hk_weather():
     response = requests.get(url)
 
     #Print the response
-    st.write("response: ", response)
-    st.write("JSON: ", response.json())
+    #st.write("response: ", response)
+    #st.write("JSON: ", response.json())
     
     #print(type(response_json))
     if response == 200:
         response_json = response.json()
-        
+
+        st.subheader(response_json['generalSituation'])
         #if response_json['data'][0] is not None:
         #    epi_one  = response_json['data'][0]
         #    route = epi_one['route']
