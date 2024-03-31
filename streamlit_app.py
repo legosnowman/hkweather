@@ -36,7 +36,7 @@ def hk_weather():
     st.write("Updated: " & response_json["updateTime"])
 
     st.write("<p>")
-    st.write("<B>JSON</B>">
+    st.write("<B>JSON</B>">)
     st.write("JSON: ", response.json())
         
         #if response_json['data'][0] is not None:
