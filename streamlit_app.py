@@ -1,40 +1,54 @@
-import altair as alt
-import numpy as np
-import pandas as pd
+import requests
 import streamlit as st
+import json
 
-"""
-# Welcome to Streamlit!
+APP_NAME = "HK Weather"
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:.
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+st.set_page_config(
+    page_title=APP_NAME,
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
+st.sidebar.title(APP_NAME)
 
-num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
-num_turns = st.slider("Number of turns in spiral", 1, 300, 31)
+def hk_weather():
+    # The API endpoint
+    url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=en"
 
-indices = np.linspace(0, 1, num_points)
-theta = 2 * np.pi * num_turns * indices
-radius = indices
+    # A GET request to the API
+    response = requests.get(url)
 
-x = radius * np.cos(theta)
-y = radius * np.sin(theta)
+    #Print the response
+    print("response: ", response)
+    print("JSON: ", response.json())
+    
+    #print(type(response_json))
+    if response == 200:
+        response_json = response.json()
+        
+        #if response_json['data'][0] is not None:
+        #    epi_one  = response_json['data'][0]
+        #    route = epi_one['route']
+        #    stop_number = epi_one['stop']
+        #    eta = epi_one['eta']
+        #    destination = epi_one['dest_en']
+        #    list_bus = [route, stop_number, eta, destination]
+        #else:
+        #    list_bus = ["N/A", "N/A", "N/A", "N/A", "N/A"]
 
-df = pd.DataFrame({
-    "x": x,
-    "y": y,
-    "idx": indices,
-    "rand": np.random.randn(num_points),
-})
+    #else:
+    #    list_bus = ["N/A", "N/A", "N/A", "N/A", "N/A"]
 
-st.altair_chart(alt.Chart(df, height=700, width=700)
-    .mark_point(filled=True)
-    .encode(
-        x=alt.X("x", axis=None),
-        y=alt.Y("y", axis=None),
-        color=alt.Color("idx", legend=None, scale=alt.Scale()),
-        size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
-    ))
+    #print (type(epi_one))
+    #print(epi_one)
+    #print('Route: ', epi_one['route'])
+    #print('Stop: ', epi_one['stop'])
+    #print('Estimated Arrival Time: ', epi_one['eta'])
+    #print('Destination: ', epi_one['dest_en'])
+
+
+
+    return 
+
+hk_weather()
