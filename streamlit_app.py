@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 st.sidebar.title("Sidebar")
-st.header("HK Weather")
+
 
 
 #url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=en"
@@ -24,11 +24,15 @@ def hk_weather():
     with st.sidebar:
         with st.form("weather_form"):
             lang = st.radio("Language",("English", "Traditional Chinese"))
-            check_fn=st.form_submit_button("Check_function")
+            check_fn=st.form_submit_button("Go")
 
     if lang == "English":
+        st.header("HK Weather")
+        st.subheader("Information provided by Hong Kong Observatory")
         url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=en"
     else:
+        st.head("香港 天氣")
+        st.subheader("資料由香港天文台提供")
         url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=tc"
 
     
