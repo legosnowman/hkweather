@@ -20,8 +20,8 @@ def hk_weather():
     response = requests.get(url)
 
     #Print the response
-    print("response: ", response)
-    print("JSON: ", response.json())
+    st.write("response: ", response)
+    st.write("JSON: ", response.json())
     
     #print(type(response_json))
     if response == 200:
